@@ -17,18 +17,11 @@ docker build -t thii/platex .
 
 ```
 
-Add the following alias to your `.bash_profile` or `.zshrc` so you can use the `tex` command to compile pLaTeX file:
-
-```
-alias tex="docker run --rm -v `pwd`:/latex thii/platex build"
-```
-
-Usage:
+Usage
 -----
 
-
 ```bash
-tex example.tex
+docker run --rm -v `pwd`:/latex thii/platex build example.tex
 ```
 
 ## License
