@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pdfplatex "$1" && pdfplatex "$1"
