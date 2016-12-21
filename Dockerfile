@@ -1,5 +1,4 @@
 FROM soleo/latex
-MAINTAINER Doan Truong Thi
 
 # DVI to PostScript converter
 RUN apt-get install -qy dvipsk-ja
