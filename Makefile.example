@@ -1,0 +1,7 @@
+## A typical Makefile for compiling platex sources using a thii/platex docker container
+
+all:
+	docker run --rm -v `pwd`:/latex thii/platex build example.tex
+
+clean:
+	rm -f *.aux *.dvi *.log *.gz

@@ -1,15 +1,12 @@
-FROM soleo/latex
+FROM ubuntu:trusty
+ENV DEBIAN_FRONTEND noninteractive
 
-# DVI to PostScript converter
-RUN apt-get install -qy dvipsk-ja
+# Add useful commands for building PDF directly from pLaTeX2e source file
+COPY build pdfplatex /usr/bin/
 
-# Add useful command for building PDF directly from pLaTeX2e source file
-ADD pdfplatex /usr/bin/pdfplatex
-RUN chmod +x /usr/bin/pdfplatex
-
-# Build command
-ADD build /usr/bin/build
-RUN chmod +x /usr/bin/build
+RUN apt-get -q update && \
+	apt-get -qy install texlive texlive-lang-cjk dvipsk-ja texlive-fonts-recommended texlive-fonts-extra && \
+	rm -rf /var/lib/apt/lists/*
 
 VOLUME /latex
 WORKDIR /latex
